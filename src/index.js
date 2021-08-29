@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Repairs } from './components/Repairs';
-import { CustomerList } from './components/customers/CustomerList';
-import { EmployeeList } from './components/employees/EmployeeList';
 
 ReactDOM.render(
   <React.StrictMode>
