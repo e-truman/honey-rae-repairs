@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-// ^ allows us to use react library
-
-
-// function that renders out html, which is called jsx
 export const EmployeeList = () => {
-    const [employees, setEmployees] = useState([])
-    useEffect( // takes a function and array as parameters, just like event listener
+    const [employees, changeEmployee] = useState([])
+    const [specialties, setSpecial] = useState("")
+
+    useEffect(
         () => {
             fetch("http://localhost:8088/employees")
-            .then(res => res.json())
-            .then((employeeArray)=> {
-                setEmployees(employeeArray)
-            })
+                .then(res => res.json())
+                .then((employeesFromAPI) => {
+                    changeEmployee(employeesFromAPI)
+                })
         },
-        [] // when state changes invokes this function, 
+        []
     )
+
+    useEffect(() => {
+        const justSpecialities = employees.map(emp => emp.specialty)
+        setSpecial(justSpecialities.join(", "))
+    }, [employees])
+
     return (
         <>
-        <h2>Employees</h2>
-         
-        { 
-            employees.map(
-                (employeeObject) => {
-                    return <h3>{employeeObject.name}</h3>
-                 
-                }
-            )
-        }
+            <h2>Employees</h2>
+            <div>
+                Specialties: { specialties }
+            </div>
+            {
+                employees.map(
+                    (employee) => {
+                        return <p key={`employee--${employee.id}`}>{employee.name}</p>
+                    }
+                )
+            }
         </>
     )
 }
