@@ -29,7 +29,7 @@ export const EmployeeList = () => {
             {
                 employees.map(
                     (employee) => {
-                        return <p key={`employee--${employee.id}`}>{employee.name}</p>
+                        return <p key={`employee--${employee.id}`}>{employee.name}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
                     }
                 )
             }

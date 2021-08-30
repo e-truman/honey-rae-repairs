@@ -1,8 +1,8 @@
 //responsibility is to show what order things should be displayed
 import React from 'react';
-import { CustomerList } from './customers/CustomerList';
-import { EmployeeList } from './employees/EmployeeList';
-import { TicketList } from './tickets/TicketList';
+import { ApplicationViews } from './ApplicationViews';
+import { NavBar } from './nav/NavBar';
+import "./Repairs.css"
 
 // ^ allows us to use react library
 
@@ -11,10 +11,9 @@ import { TicketList } from './tickets/TicketList';
 export const Repairs = () => {
     return (
         <>
+        <NavBar />
         <h1>Honey Rae RepairShop</h1>
-       <CustomerList /> 
-        <EmployeeList />
-        <TicketList />
+       <ApplicationViews />
         </>
     )
 }
