@@ -1,22 +1,37 @@
 //responsibility is to show what order things should be displayed
-import React from 'react';
-import { ApplicationViews } from './ApplicationViews';
-import { NavBar } from './nav/NavBar';
-import "./Repairs.css"
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { ApplicationViews } from "./ApplicationViews";
+import { NavBar } from "./nav/NavBar";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import "./Repairs.css";
 
-// ^ allows us to use react library
+export const Repairs = () => (
+  <>
+    <Route
+      render={() => {
+        if (localStorage.getItem("honey_customer")) {
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+            </>
+          );
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
 
-
-// function that renders our html, which is called jsx
-export const Repairs = () => {
-    return (
-        <>
-        <NavBar />
-        <h1>Honey Rae RepairShop</h1>
-       <ApplicationViews />
-        </>
-    )
-}
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);
 
 
 
