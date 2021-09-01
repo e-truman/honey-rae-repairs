@@ -40,9 +40,3 @@ const history = useHistory()
         </>
     )
 }
-
-
-
-// submitted by 
-//                             {ticket.customer.name} and worked on by 
-//                             {ticket.employee.name}

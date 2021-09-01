@@ -14,8 +14,8 @@ export const TicketForm = () => {
 
 // save ticket uses the state variables to create an object to post to api
 
-    const saveTicket = (event) => {
-        event.preventDefault()
+    const saveTicket = (event) => { // invoked when you push submit button
+        event.preventDefault() // prevents form from being submitted without being able to see your fetch
         const newTicket ={
             description: ticket.description, // got this from state
             emergency: ticket.emergency,
@@ -70,7 +70,7 @@ export const TicketForm = () => {
                         type="checkbox"/>
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={saveTicket}>
+            <button className="btn btn-primary" onClick={saveTicket}> 
                 Submit Ticket
             </button>
         </form>

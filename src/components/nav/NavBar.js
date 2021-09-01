@@ -18,6 +18,9 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="/tickets/create">Service Form</Link>
             </li>
             <li className="navbar__item">
+                <Link className="navbar__link" to="/employee/hire">Hire an Employee</Link>
+            </li>
+            <li className="navbar__item">
                 <Link className="navbar__link" to="#"
                 onClick={
                     () => {
