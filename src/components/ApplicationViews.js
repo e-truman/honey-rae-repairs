@@ -5,6 +5,8 @@ import { EmployeeList } from "./employees/EmployeeList"
 import { CustomerList } from "./customers/CustomerList"
 import { TicketList } from "./tickets/TicketList"
 import { TicketForm } from "./tickets/TicketForm" 
+import { Ticket } from "./tickets/Ticket"
+import { Employee } from "./employees/Employee"
 import { EmployeeForm } from "./employees/EmployeeForm"
 
 export const ApplicationViews = () => {
@@ -13,11 +15,17 @@ export const ApplicationViews = () => {
             <Route exact path="/customers">
                 <CustomerList />
             </Route>
-            <Route path="/employees">
+            <Route exact path="/employees">
                 <EmployeeList />
             </Route>
             <Route exact path="/tickets">
                 <TicketList />
+            </Route>
+            <Route exact path="/tickets/:ticketId(\d+)"> {/*capture whatever comes after second slash by use a colon and specific key- react captures and stored in ticket id variable. The (\d+) makes sure whatever comes after the slash is a number in order to invoke the functions */}
+                <Ticket />
+            </Route>
+            <Route exact path="/employees/:employeeId(\d+)"> {/*capture whatever comes after second slash by use a colon and specific key- react captures and stored in ticket id variable. The (\d+) makes sure whatever comes after the slash is a number in order to invoke the functions */}
+                <Employee />
             </Route>
             <Route path="/tickets/create">
                 <TicketForm />

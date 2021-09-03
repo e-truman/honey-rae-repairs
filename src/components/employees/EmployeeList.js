@@ -32,10 +32,12 @@ export const EmployeeList = () => {
             {
                 employees.map(
                     (employee) => {
-                        return <p key={`employee--${employee.id}`}>{employee.name}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
+                        return <p key={`employee--${employee.id}`}><Link to={`/employees/${employee.id}`} >{employee.name}</Link></p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
                     }
                 )
             }
         </>
     )
 }
+
+
