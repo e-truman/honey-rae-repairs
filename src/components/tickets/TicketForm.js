@@ -67,7 +67,7 @@ export const TicketForm = () => {
                                 updateTicket(copy)
                             }
                         } 
-                        type="checkbox"/>
+                        />
                 </div>
             </fieldset>
             <button className="btn btn-primary" onClick={saveTicket}> 

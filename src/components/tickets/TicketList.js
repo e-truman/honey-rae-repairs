@@ -4,8 +4,7 @@ import "./Tickets.css";
 
 export const TicketList = () => {
     const [tickets, setTickets] = useState([]) // use state returns an array. asslign it to a variable to capture that initial state, and a variable to hold the function of what you are going to do to modify state. function accepts the value of the array later in code
-    
-const history = useHistory()
+    const history = useHistory()
     // after you declare the initial state, you have to go get it. takes two arguments. a function and an array. sole purpose is to run code when certain state changes. it is like an event listener
     useEffect(
         () => {
@@ -25,18 +24,18 @@ const history = useHistory()
         [tickets]
     )
 
-   
+
     return (
-        <> 
+        <>
             <button onClick={() => history.push("/tickets/create")}>Create Ticket</button>
             <h2>Service Tickets</h2>
             {
                 tickets.map(
                     (ticket) => {
-                        return <p className={ticket.emergency ? "emergency " : "ticket"}>
-                        {ticket.emergency ? "🚑 " : ""} <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link> submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
-                    </p>
-                    
+                        return <p  className={ticket.emergency ? "emergency " : "ticket"} key={`ticket--${ticket.id}`}>
+                            {ticket.emergency ? "🚑 " : ""} <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link> submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
+                        </p>
+
                     }
                 )
             }

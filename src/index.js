@@ -6,12 +6,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { Repairs } from './components/Repairs';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Repairs /> 
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+      <BrowserRouter>
+        <Repairs />
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
